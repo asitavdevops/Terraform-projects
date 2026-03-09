@@ -32,5 +32,39 @@ The server returns data like:
  "age": 25
 }
 
-*************************************************#######################***************************************************
+****Start With TF**********
+**Refr:** AWS terraform provide - google hashicorp terraform aws provider(https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+How Terraform Works: **Terraform → Terraform Provider → Target API**
+**Terraform:** You write infrastructure configuration Example: define servers, databases, networks, etc
+**Terraform Provider**: A plugin that allows Terraform to talk to different platforms. xamples: Amazon Web Services, Google Cloud, Microsoft Azure, GitHub, Kubernetes.
+**Target API :** The provider calls the platform's API to create or manage resources. Example: create VM, storage bucket, VPC
+**Note:** So Terraform doesn't create resources directly.It talks to providers, which call the platform APIs.
+
+**Install Terraform Using Package Managers(Avoid using curl command)** :
+**refer link:** https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
+**Mac (using Homebrew)** 
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+brew upgrade hashicorp/tap/terraform
+
+**Linux Installation:**
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+Then add the HashiCorp repository and install Terraform.
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+sudo apt update
+sudo apt install terraform
+
+**Verify installation** -->terraform -version
+
+
+
+
 
