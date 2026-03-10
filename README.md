@@ -85,6 +85,29 @@ For AWS CLI setup :
                 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 4. terraform destory
 
+**terraform.tfstate** : Teraform state file : Very Imp as keeps the track of infracture .(Any modify,delete,update with infra)
+When we do terraform inti -> plan ->apply then along with infra a tfstate file also got created . Which keeps the track of all your 
+infracture created by terraform.
+-> **Usually we should not(never) keep the tfstate file in git because it carries sensitive info like kns keys , vps details etc
+   instead we should keep tfstate file in centralized locaion like S3 and locking mechanizim by remote back end like Dynamo DB .**
+-> We should never store the tfstate file in local system .
+-> Never manipulate tfstate in local system because Terraform might corrupted . So the tfstate should given read permissions only .
+
+**Ideal Terraform SET UP.**
+User --> Jenkins --> Terraform uploaded to GIT --> AWS
+                                |
+                        Amazon S3(tfstate file) --> Dynamo DB(Locking Solution) 
+
+In Ideal world Devops will write Terraform Scripts and they will store the Terraform files in GIT repo (like main.tf), as users in my 
+organization not allowed to create AWS infra ,so we have to create the Jemkins pipeline which will watch for the Terraform resources in the GitHub and executed the task in AWS based on TF file .
+The tfstate files should be stored in the S3 which is called **remote backend** , in order to avoide parallal executing the 
+terraform scripts by mutiple user  we need to intigrate remote backend with Dynamo DB in order to locking the tfstate file. SO 
+that Multiple user can not run the same tfstate file in same time .
+
+**Remote Back End setup :**
+
+
+
 
 
 
