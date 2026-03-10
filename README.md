@@ -64,6 +64,19 @@ sudo apt install terraform
 
 **Verify installation** -->terraform -version
 
+**Prerequsite before creating TF infrastructure :** --> Setup AWS/AZURE/GCP CLI so that it can talk to provider(AWS/AZ/GCP) APIs.
+For AWS CLI setup :
+1. Download AWS CLI package manager (Linux/Windos/MAC) -> https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+   OR you can run from cmd(Windows) : msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+2. set up CLI from your local system then check if it installed -->connect CMD--> aws --version
+3. **login to AWS account -->Account -->Security credentials -->Access keys -> Create the Access Keys**
+   Now grab Access key : ******** Secret access key : ******
+4. connect to CMD (AWS CLI installed)  -> aws configutation --> Do the Set up
+5. Now it should be able to connect to AWS from CLI --> aws s3 ls
+
+**Starting with Terraform Coading :**
+
+
 
 
 
