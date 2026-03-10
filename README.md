@@ -75,6 +75,16 @@ For AWS CLI setup :
 5. Now it should be able to connect to AWS from CLI --> aws s3 ls
 
 **Starting with Terraform Coading :**
+1. Once the terraform file created (aws/local_state/main.tf)
+        Run -> **terraform init** 
+        op -> Terraform has been successfully initialized!
+2. terraform plan 
+        op --> Plan: 2 to add, 0 to change, 0 to destroy.
+3. terraform apply 
+        op --> Do you want to perform these actions? Enter a value: Yes
+                Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+4. terraform destory
+
 
 
 
